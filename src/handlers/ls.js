@@ -11,7 +11,14 @@ const ls = async () => {
             type: file.isDirectory() ? "directory" : "file"
         }
     });
-    console.table(table);
-};
-
+    const sortedTable = table.toSorted(
+        (a, b) => {
+            if (a.type === b.type) {
+              return a.name.localeCompare(b.name);
+            }
+            return a.type === 'directory' ? -1 : 1;
+          }
+    );
+    console.table(sortedTable);
+}
 export default ls;
