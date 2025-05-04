@@ -1,12 +1,13 @@
 import exitProgram from "../utils/exitProgram.js";
 import add from "./add.js";
+import cd from "./cd.js";
 import ls from "./ls.js";
 import up from "./up.js";
 
 const handlersMap = new Map(Object.entries({
     ".exit": exitProgram,
     "up": up,
-    // "cd": cd,
+    "cd": cd,
     "ls": ls,
     // "cat": cat,
     "add": add,
