@@ -3,6 +3,7 @@ import add from "./add.js";
 import cat from "./cat.js";
 import cd from "./cd.js";
 import ls from "./ls.js";
+import mkdir from "./mkdir.js";
 import up from "./up.js";
 
 const handlersMap = new Map(Object.entries({
@@ -12,7 +13,7 @@ const handlersMap = new Map(Object.entries({
     "ls": ls,
     "cat": cat,
     "add": add,
-    // "mkdir": mkdir,
+    "mkdir": mkdir,
     // "rn": rn,
     // "mv": mv,
     // "rm": rm,
