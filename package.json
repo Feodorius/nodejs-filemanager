@@ -1,0 +1,22 @@
+{
+  "name": "nodejs-filemanager",
+  "version": "1.0.0",
+  "description": "",
+  "type": "module",
+  "engines": {
+    "node": ">=22.14.0"
+  },
+  "scripts": {
+    "start": "node src/index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Feodorius/nodejs-filemanager.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Feodorius/nodejs-filemanager/issues"
+  },
+  "homepage": "https://github.com/Feodorius/nodejs-filemanager#readme"
+}
