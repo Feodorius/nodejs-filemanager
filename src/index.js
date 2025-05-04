@@ -22,14 +22,13 @@ const rl = readline.createInterface({
 });
 
 rl.prompt();
-rl.on("line", (input) => {
-    const trimmedInput = input.trim();
-    const handlerKey = trimmedInput.startsWith("cd ") ? "cd" : trimmedInput;
+rl.on("line", async (input) => {
+    const [handlerKey, ...commandArgs] = input.trim().split(" ");
 
     try {
         if (handlersMap.has(handlerKey)) {
             const handler = handlersMap.get(handlerKey);
-            handler();
+            await handler(...commandArgs);
         } else {
             console.log(consoleRedColor, 'Invalid input');
         }

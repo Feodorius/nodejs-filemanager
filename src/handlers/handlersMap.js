@@ -1,4 +1,5 @@
 import exitProgram from "../utils/exitProgram.js";
+import add from "./add.js";
 import ls from "./ls.js";
 import up from "./up.js";
 
@@ -8,7 +9,7 @@ const handlersMap = new Map(Object.entries({
     // "cd": cd,
     "ls": ls,
     // "cat": cat,
-    // "add": add,
+    "add": add,
     // "mkdir": mkdir,
     // "rn": rn,
     // "mv": mv,
