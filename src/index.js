@@ -1,9 +1,44 @@
-import { argv } from "process";
+import { homedir } from "os";
+import { chdir, stdin, stdout } from "process";
+import getArguments from "./utils/getArguments.js";
+import readline from "readline";
+import exitProgram from "./utils/exitProgram.js";
+import handlersMap from "./handlers/handlersMap.js";
+import logCurrentDirectory from "./utils/logCurrentDirectory.js";
+import { consoleRedColor, consoleYellowColor } from "./utils/constants.js";
 
-const args = argv.slice(2).reduce((prev, arg
-) => {
-    const [key, value] = arg.split("=");
-    return { ...prev, [key]: value };
-}, {});
+chdir(homedir());
 
-console.log(`Welcome to the File Manager, ${args["--username"] || "stranger"}!`);
+const args = getArguments();
+const username = args["--username"] || "Anonymous User";
+process.env.username = username;
+
+console.log(consoleYellowColor, `Welcome to the File Manager, ${username}!`);
+logCurrentDirectory();
+
+const rl = readline.createInterface({
+    input: stdin,
+    output: stdout,
+});
+
+rl.prompt();
+rl.on("line", (input) => {
+    const trimmedInput = input.trim();
+    const handlerKey = trimmedInput.startsWith("cd ") ? "cd" : trimmedInput;
+
+    try {
+        if (handlersMap.has(handlerKey)) {
+            const handler = handlersMap.get(handlerKey);
+            handler();
+        } else {
+            console.log(consoleRedColor, 'Invalid input');
+        }
+
+    } catch (error) {
+        console.log(consoleRedColor, 'Operation failed');
+    }
+    logCurrentDirectory();
+    rl.prompt();
+});
+
+rl.on('SIGINT', exitProgram);
