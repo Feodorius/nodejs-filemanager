@@ -1,5 +1,5 @@
 import { chdir } from "process";
 
-const up = () => chdir("..");
+const up = async () => chdir("..");
 
 export default up;
