@@ -5,6 +5,7 @@ import cd from "./cd.js";
 import compress from "./compress.js";
 import cp from "./cp.js";
 import decompress from "./decompress.js";
+import hash from "./hash.js";
 import ls from "./ls.js";
 import mkdir from "./mkdir.js";
 import mv from "./mv.js";
@@ -26,7 +27,7 @@ const handlersMap = new Map(Object.entries({
     "mv": mv,
     "rm": rm,
     "os": os,
-    // "hash": hash,
+    "hash": hash,
     "compress": compress,
     "decompress": decompress
 }));
