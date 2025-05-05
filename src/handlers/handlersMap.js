@@ -6,6 +6,7 @@ import cp from "./cp.js";
 import ls from "./ls.js";
 import mkdir from "./mkdir.js";
 import mv from "./mv.js";
+import os from "./os.js";
 import rm from "./rm.js";
 import rn from "./rn.js";
 import up from "./up.js";
@@ -22,7 +23,7 @@ const handlersMap = new Map(Object.entries({
     "cp": cp,
     "mv": mv,
     "rm": rm,
-    // "os": os,
+    "os": os,
     // "hash": hash,
     // "compress": compress,
     // "decompress": decompress
